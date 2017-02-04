@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{1BB0391A-10DC-40E3-B69D-79E37F83A2C3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>RestoranApp</RootNamespace>
+    <AssemblyName>RestoranApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <ApplicationManifest>BPAdresaDostave.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="gtk-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="gdk-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="glib-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="glade-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="pango-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="atk-sharp, Version=2.4.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Mono.Data.Sqlite">
+      <HintPath>..\packages\Mono.Data.Sqlite.Portable.1.0.3.5\lib\net4\Mono.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Portable">
+      <HintPath>..\packages\Mono.Data.Sqlite.Portable.1.0.3.5\lib\net4\System.Data.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions.Portable">
+      <HintPath>..\packages\Mono.Data.Sqlite.Portable.1.0.3.5\lib\net4\System.Transactions.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="Mono.Posix, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gtk-gui\gui.stetic">
+      <LogicalName>gui.stetic</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gtk-gui\generated.cs" />
+    <Compile Include="gtk-gui\MainWindow.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\MainWindow.cs" />
+    <Compile Include="View\PrijavaWindow.cs" />
+    <Compile Include="gtk-gui\RestoranApp.PrijavaWindow.cs" />
+    <Compile Include="View\RegistracijaWindow.cs" />
+    <Compile Include="gtk-gui\RestoranApp.RegistracijaWindow.cs" />
+    <Compile Include="View\PocetnaWidget.cs" />
+    <Compile Include="gtk-gui\RestoranApp.PocetnaWidget.cs" />
+    <Compile Include="View\NarudzbaWidget.cs" />
+    <Compile Include="gtk-gui\RestoranApp.NarudzbaWidget.cs" />
+    <Compile Include="View\TijekNarudzbeWidget.cs" />
+    <Compile Include="gtk-gui\RestoranApp.TijekNarudzbeWidget.cs" />
+    <Compile Include="View\NarucivanjeWindow.cs" />
+    <Compile Include="gtk-gui\RestoranApp.NarucivanjeWindow.cs" />
+    <Compile Include="View\NarucivanjeWidget.cs" />
+    <Compile Include="gtk-gui\RestoranApp.NarucivanjeWidget.cs" />
+    <Compile Include="View\OdabranoPopisWidget.cs" />
+    <Compile Include="gtk-gui\RestoranApp.OdabranoPopisWidget.cs" />
+    <Compile Include="View\PregledPodatakaWidget.cs" />
+    <Compile Include="gtk-gui\RestoranApp.PregledPodatakaWidget.cs" />
+    <Compile Include="View\StatusNarudzbeWindow.cs" />
+    <Compile Include="gtk-gui\RestoranApp.StatusNarudzbeWindow.cs" />
+    <Compile Include="Presenter\NarudzbaNode.cs" />
+    <Compile Include="Presenter\NarudzbaNodeStore.cs" />
+    <Compile Include="Model\Narudzba.cs" />
+    <Compile Include="Model\Korisnik.cs" />
+    <Compile Include="Model\Hrana.cs" />
+    <Compile Include="Model\Globalna.cs" />
+    <Compile Include="Model\BPKorisnik.cs" />
+    <Compile Include="Model\BP.cs" />
+    <Compile Include="Model\BPHrana.cs" />
+    <Compile Include="Model\BPNarudzba.cs" />
+    <Compile Include="Model\AdresaDostave.cs" />
+    <Compile Include="Model\BPAdresaDostave.cs" />
+    <Compile Include="View\IzmjenaStatusaWindow.cs" />
+    <Compile Include="gtk-gui\RestoranApp.IzmjenaStatusaWindow.cs" />
+    <Compile Include="View\CjenikWindow.cs" />
+    <Compile Include="gtk-gui\RestoranApp.CjenikWindow.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\" />
+    <Folder Include="Model\" />
+    <Folder Include="Presenter\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
